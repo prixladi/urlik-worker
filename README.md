@@ -24,4 +24,4 @@ Builds production-ready image.
 
 ### `docker-compose up`
 
-Runs app container and other required/optional containers (**postgress, pgadmin, mongodb, authority service**) and builds app image if does not exist.
+Runs app container and other required/optional containers (**mongodb, redis**) and builds app image if does not exist.
