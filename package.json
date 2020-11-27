@@ -1,0 +1,26 @@
+{
+  "name": "shamyr-urlik-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/index.ts",
+    "eslint": "eslint -c .eslintrc.json \"**/*.ts\"",
+    "prettier:run": "prettier --write \"**/*.ts\"",
+    "prettier:check": "prettier -l \"**/*.ts\"",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mongoose": "^5.10.1",
+    "@types/node": "^14.14.10",
+    "@types/redis": "^2.8.28",
+    "nodemon": "^2.0.6",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "mongoose": "^5.10.16",
+    "redis": "^3.0.2"
+  }
+}
