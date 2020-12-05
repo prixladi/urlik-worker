@@ -4,7 +4,6 @@
   "description": "Worker service for Urlik project",
   "author": "Ladislav Prix",
   "license": "ISC",
-  "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "build": "tsc",
