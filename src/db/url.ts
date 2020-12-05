@@ -10,7 +10,7 @@ type UrlDoc = mongoose.Document & {
 
 const collectionName = 'Urls';
 
-const urlSchema = new mongoose.Schema<UrlDoc>(
+const urlSchema = new mongoose.Schema(
   {
     _id: mongoose.Types.ObjectId,
     url: String,
