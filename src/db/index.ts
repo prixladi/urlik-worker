@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { devEnvironment, mongoConfig } from '../configs';
 import UrlModel from './url';
 
-const connect = async () => {
+const connect = async (): Promise<void> => {
   const url = new URL(mongoConfig.databaseName, mongoConfig.url).href;
   const connection = mongoose.connection;
   connection.once('open', function () {
@@ -13,7 +13,7 @@ const connect = async () => {
   await mongoose.connect(url, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useFindAndModify : false
+    useFindAndModify: false,
   });
 };
 

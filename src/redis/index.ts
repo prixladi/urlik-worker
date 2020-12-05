@@ -6,18 +6,18 @@ let client: RedisClient;
 
 const hitsQueueName = 'hits';
 
-const connect = () => {
+const connect = (): RedisClient => {
   client = createClient({
     host: redisConfig.host,
     port: redisConfig.port,
   });
 
-  client.on('error', function(err){ 
-    console.error('Redis error:', err); 
+  client.on('error', function (err) {
+    console.error('Redis error:', err);
   });
 
-  client.on('connect', function(){ 
-    console.error('Connected to redis instance.'); 
+  client.on('connect', function () {
+    console.error('Connected to redis instance.');
   });
 
   return client;

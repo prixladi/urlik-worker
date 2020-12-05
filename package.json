@@ -1,26 +1,30 @@
 {
   "name": "shamyr-urlik-worker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Worker service for Urlik project",
+  "author": "Ladislav Prix",
+  "license": "ISC",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/index.ts",
-    "eslint": "eslint -c .eslintrc.json \"**/*.ts\"",
-    "prettier:run": "prettier --write \"**/*.ts\"",
-    "prettier:check": "prettier -l \"**/*.ts\"",
+    "eslint:check": "eslint -c .eslintrc.json \"src/**\"",
+    "eslint:fix": "eslint -c .eslintrc.json --fix  \"src/**\"",
+    "prettier:check": "prettier -l \"src/**\"",
+    "prettier:fix": "prettier --write \"src/**\"",
     "build": "tsc"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/mongoose": "^5.10.1",
-    "@types/node": "^14.14.10",
-    "@types/redis": "^2.8.28",
-    "nodemon": "^2.0.6",
-    "typescript": "^4.1.2"
   },
   "dependencies": {
     "mongoose": "^5.10.16",
     "redis": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.10.1",
+    "@types/node": "^14.14.10",
+    "@types/redis": "^2.8.28",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.15.0",
+    "nodemon": "^2.0.6",
+    "typescript": "^4.1.2"
   }
 }

@@ -11,6 +11,8 @@
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-constant-condition": "off"
+    "no-constant-condition": 0,
+    "curly": 1,
+    "quotes": [1, "single"]
   }
 }
