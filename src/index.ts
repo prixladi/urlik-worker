@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 import { RedisClient } from 'redis';
-import { connect as connectDb } from './db';
+import { connect as connectDb, disconnect as disconnectDb } from './db';
+import { connect as connectRedis, disconnect as disconnectRedis, popHitBlocking } from './redis';
 import { UrlDoc } from './db/url';
-import { connect as connectRedis, popHitBlocking } from './redis';
 
 let exiting = false;
 
@@ -32,8 +32,11 @@ const main = async () => {
 
   const shutdown = async () => {
     exiting = true;
-    redisClient.quit();
-    await mongoose.disconnect();
+
+    await disconnectRedis(redisClient);
+    await disconnectDb();
+
+    process.exit();
   };
 
   process.on('SIGINT', shutdown);
