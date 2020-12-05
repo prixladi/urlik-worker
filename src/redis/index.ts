@@ -2,12 +2,10 @@ import { RedisClient, createClient, Callback } from 'redis';
 import { redisConfig } from '../configs';
 import { HitDto } from './types';
 
-let client: RedisClient;
-
 const hitsQueueName = 'hits';
 
 const connect = (): RedisClient => {
-  client = createClient({
+  const client = createClient({
     host: redisConfig.host,
     port: redisConfig.port,
   });
@@ -23,7 +21,7 @@ const connect = (): RedisClient => {
   return client;
 };
 
-const popHitBlocking = (): Promise<HitDto> => {
+const popHitBlocking = (client: RedisClient): Promise<HitDto> => {
   return new Promise<HitDto>((resolve, reject) => {
     const callback: Callback<[string, string]> = (err, reply) => {
       if (err) {

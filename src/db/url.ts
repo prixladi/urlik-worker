@@ -21,7 +21,8 @@ const urlSchema = new mongoose.Schema(
       required: false,
     },
   },
-  { collection: collectionName, versionKey: false }
+  { collection: collectionName, versionKey: false },
 );
 
+export { UrlDoc };
 export default mongoose.model<UrlDoc>(collectionName, urlSchema, collectionName);

@@ -2,7 +2,11 @@ import mongoose from 'mongoose';
 import { devEnvironment, mongoConfig } from '../configs';
 import UrlModel from './url';
 
-const connect = async (): Promise<void> => {
+type DB = {
+  UrlModel: typeof UrlModel;
+};
+
+const connect = async (): Promise<DB> => {
   const url = new URL(mongoConfig.databaseName, mongoConfig.url).href;
   const connection = mongoose.connection;
   connection.once('open', function () {
@@ -15,6 +19,10 @@ const connect = async (): Promise<void> => {
     useNewUrlParser: true,
     useFindAndModify: false,
   });
+
+  return {
+    UrlModel,
+  };
 };
 
-export { UrlModel, connect };
+export { connect };

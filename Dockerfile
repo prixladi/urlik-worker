@@ -1,16 +1,16 @@
-FROM node:12.17.0-alpine as build
+FROM node:15.3.0-alpine3.10 as build
 
 WORKDIR /app
 COPY package*.json ./
 COPY . .
 RUN yarn install
-RUN yarn run build
+RUN yarn build
 
-FROM node:12.17.0-alpine as final
+FROM node:15.3.0-alpine3.10 as final
 
 WORKDIR /app
 COPY package*.json ./
 RUN yarn install --only=production
-COPY --from=build /app/build ./build
+COPY --from=build /app/dist ./dist
 
-ENTRYPOINT [ "node", "/app/build/index.js" ]
+ENTRYPOINT [ "node", "/app/dist/index.js" ]
