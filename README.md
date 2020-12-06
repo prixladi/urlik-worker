@@ -1,6 +1,7 @@
 # Urlik Worker
 
-Worker service processing events send through Redis by [Urlik server](https://github.com/prixladi/shamyr-urlik-server).
+Worker service processing events sent through Redis by [Urlik Server](https://github.com/prixladi/shamyr-urlik-server).
+Part of [Urlik](https://github.com/prixladi/shamyr-urlik) project.
 
 ## Yarn
 
