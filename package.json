@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "build": "tsc",
-    "start": "node ./dist/index.ts",
+    "start": "node ./dist/index.js",
     "eslint:check": "eslint -c .eslintrc.json src/**",
     "eslint:fix": "eslint -c .eslintrc.json --fix  src/**",
     "prettier:check": "prettier -l src/**",

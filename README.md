@@ -17,7 +17,7 @@ You will also see any lint errors in the console.
 ### `yarn build`
 
 Builds the app for production to the `dist` folder.<br />
-the App is ready to be deployed!
+The App is ready to be deployed!
 
 ## Docker
 
@@ -27,4 +27,4 @@ Builds a production-ready image.
 
 ### `docker-compose up`
 
-Runs app container and other containers (**MongoDB, Redis, Authorization  Service, Urlik Server, etc...**) and builds app image if does not exist.
+Runs app container and other containers (**MongoDB, Redis, Authorization Service, Urlik Server, etc...**) and builds app image if does not exist.

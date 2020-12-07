@@ -1,7 +1,7 @@
 FROM node:15.3.0-alpine3.10 as build
 
 WORKDIR /app
-COPY package*.json ./
+COPY package.json yarn.lock ./
 COPY . .
 RUN yarn install
 RUN yarn build
@@ -9,8 +9,9 @@ RUN yarn build
 FROM node:15.3.0-alpine3.10 as final
 
 WORKDIR /app
-COPY package*.json ./
-RUN yarn install --only=production
+COPY --from=build /app/package.json /app/yarn.lock ./
 COPY --from=build /app/dist ./dist
 
-ENTRYPOINT [ "node", "/app/dist/index.js" ]
+RUN yarn install --only=production
+
+ENTRYPOINT [ "yarn", "start" ]
